@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ROOTDIR="$HOME/os161/root" # Add your root dir here (where your sys.conf is)
 KERNDIR="$HOME/os161/kern" # Add location of your kern directiory in ospath 
-VERSION="compile/DUMBVM"   # Variable for future when this might change
+VERSION="DUMBVM"   # Variable for future when this might change
 DEBUG=false		   # For gdb, set to true if want to make this default
 while [[ -n "$1" ]]; do	   # Just option stuff, thanks stackoverflow :)
 	case "$1" in
@@ -18,12 +18,19 @@ while [[ -n "$1" ]]; do	   # Just option stuff, thanks stackoverflow :)
 		VERSION="$2"
 		shift
 		;;
+	-h)
+		echo "-d: run sys161 and wait for gdb"
+		echo "-r <directory>: Specify root directory"
+		echo "-o <directory>: Specify directory for os161 kernels location"
+		echo "-v <kernel>: Kernel from kern/compile/ to choose"
+		exit
+		;;
 	esac
 	shift
 done
 
 # Just the usual workflow from ASST0
-cd $KERNDIR/$VERSION
+cd $KERNDIR/compile/$VERSION
 bmake
 bmake install
 cd $ROOTDIR

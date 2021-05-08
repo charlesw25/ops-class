@@ -18,3 +18,8 @@ From here, you can run GDB: `os161-gdb kernel`
 
 
 Everything else from here on is more centric on GDB itself. Useful GDB commands include (s)tep, (n)ext, (c)ontinue, (b)reak, (c)lear, (p)rint, and [more](https://in-addr.nl/mirror/GDB%20Cheat%20Sheet.pdf).
+
+### Buildkernel.sh
+####
+Bash script for running os161 without calling cd too much.
+Call the file with -h for options info and look at last comment for making script a command.
